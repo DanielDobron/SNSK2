@@ -81,7 +81,7 @@ int Zaner(int zaner)
 
 void Uloz()
 {
-   
+    system("cls");
     string text = "";
 
     for (int i = 0; i < zoznam.size(); ++i)
@@ -117,6 +117,7 @@ void PridatKnihu(int kategoria, int zaner, string nazov, string popis)
 
 void NováKniha()
 {
+
     std::setlocale(LC_ALL, "");
     int kategoria = Vstup("Veková Kategória") - 1;
     int zaner = Vstup("Žáner") - 1;
