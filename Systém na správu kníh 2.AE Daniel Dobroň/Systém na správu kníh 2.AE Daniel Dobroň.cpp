@@ -45,7 +45,6 @@ void Ciara()
 
 int Vstup(string otazka)
 {
-    std::setlocale(LC_ALL, "");
     int hodnota;
     cout << otazka << " :" << endl;
     cin >> hodnota;
@@ -56,7 +55,7 @@ int Vstup(string otazka)
 
 string VstupText(string otazka)
 {
-    std::setlocale(LC_ALL, "");
+    
     string text;
     cout << otazka << " :" << endl;
     cin >> text;
@@ -82,7 +81,7 @@ int Zaner(int zaner)
 
 void Uloz()
 {
-    std::setlocale(LC_ALL, "");
+   
     string text = "";
 
     for (int i = 0; i < zoznam.size(); ++i)
@@ -92,7 +91,7 @@ void Uloz()
         Kniha kniha = *it;
 
         if (kniha.kategoria < 0) continue;
-
+     
         string nazov = kniha.nazov;
         string popis = kniha.popis;
         replace(nazov.begin(), nazov.end(), ' ', '-');
@@ -111,14 +110,15 @@ void Uloz()
 
 void PridatKnihu(int kategoria, int zaner, string nazov, string popis)
 {
-    std::setlocale(LC_ALL, "");
+    
     int id = zoznam.back().id + 1;
     zoznam.push_back(Kniha(id, kategoria, zaner, nazov, popis));
 }
 
-void NovaKniha()
+void NováKniha()
 {
-    int kategoria = Vstup("Kategória") - 1;
+    std::setlocale(LC_ALL, "");
+    int kategoria = Vstup("Veková Kategória") - 1;
     int zaner = Vstup("Žáner") - 1;
     string nazov = VstupText("Názov Knihy (Medzeri píš pomocou -)");
     string popis = VstupText("Popis knihy (Medzeri píš pomocou -)");
@@ -153,11 +153,11 @@ void OdobratKnihu()
 
 void Knihy()
 {
-    kat = Vstup("Vyber vekovú kategóriu");
+    kat = Vstup("Vyber kategóriu");
     switch (kat)
     {
     case 4:
-        NovaKniha();
+        NováKniha();
         return;
     case 5:
         OdobratKnihu();
@@ -187,12 +187,16 @@ void Knihy()
 
 void Sprava()
 {
-    system("cls");
+    
     cout << "---------------------Systém na správu kníh-------------------" << endl;
     cout << "----------------------------Menu-----------------------------" << endl;
-    cout << "Pre Deti (žáner) : Omaľovánky, Rozprávky " << endl;
-    cout << "Pre Študentov (žáner) : Romány, Detektívky, Cestopisy" << endl;
-    cout << "Pre Dospelých (žáner) : Romány, Novely, Kuchárky" << endl;
+    cout << "Keď pridáš knihu nezabudni ju uložiť!" << endl;
+    cout << "Keď odoberieš knihu nezabudni uložiť program!" << endl;
+    cout << "Pre Deti (žáner) : 1-Omaľovánky,2-Rozprávky " << endl;
+    cout << "Pre Študentov (žáner) : 1-Romány, 2-Detektívky, 3-Cestopisy" << endl;
+    cout << "Pre Dospelých (žáner) : 1-Romány, 2-Novely, 3-Kuchárky" << endl;
+    cout << "Vekové kategórie sú pod 1,2,3; Úprava pod 4,5; Uloženie pod 6." << endl;
+
     for (int i = 1; i <= sizeof(Kategorie) / sizeof(*Kategorie); ++i)
     {
         cout << i << " " << Kategorie[i - 1] << endl;
@@ -205,6 +209,7 @@ void Sprava()
 
 void NacitajKnihy()
 {
+    
     int i = 0;
     vector<string> zozn;
     string riadok;
@@ -238,6 +243,7 @@ int main()
 
     NacitajKnihy();
     Sprava();
+        
 }
 /*
 Použité zadané kritéria:
