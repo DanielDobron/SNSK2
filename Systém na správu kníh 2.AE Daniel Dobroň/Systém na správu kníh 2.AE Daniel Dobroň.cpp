@@ -9,25 +9,6 @@
 #include <vector>
 #include <algorithm>
 
-/*
-Použité zadané kritéria:
-Cyklus
-Štruktúra
-Práca s poľom
-Pointery
-Rekurzia
-Unárny operátor
-switch
-pretypovanie
-Načítanie vstupu zo súboru
-Načítanie výstupu zo súboru
-
-Navyše:
-OOP
-List
-Konštruktor v štruktúre
-*/
-
 using namespace std;
 
 int kat, zan;
@@ -50,6 +31,7 @@ struct Kniha
 
 string Kategorie[6] = { "Deti", "Študenti ", "Dospelí", "Pridať knihu", "Odstrániť knihu", "Uložiť knihy" };
 string Zanre[3][3] = { {"Omaľovánky", "Rozprávky"}, {"Romány", "Detektívky", "Cestopisy"}, {"Romány", "Novely", "Kuchárky"} };
+
 
 list<Kniha> zoznam =
 {
@@ -206,6 +188,9 @@ void Sprava()
 {
     cout << "---------------------Systém na správu kníh-------------------" << endl;
     cout << "----------------------------Menu-----------------------------" << endl;
+    cout << "Pre Deti (žáner) : Omaľovánky, Rozprávky " << endl;
+    cout << "Pre Študentov (žáner) : Romány, Detektívky, Cestopisy" << endl;
+    cout << "Pre Dospelých (žáner) : Romány, Novely, Kuchárky" << endl;
     for (int i = 1; i <= sizeof(Kategorie) / sizeof(*Kategorie); ++i)
     {
         cout << i << " " << Kategorie[i - 1] << endl;
@@ -252,3 +237,21 @@ int main()
     NacitajKnihy();
     Sprava();
 }
+/*
+Použité zadané kritéria:
+Cyklus
+Štruktúra
+Práca s poľom
+Pointery
+Rekurzia
+Unárny operátor
+switch
+pretypovanie
+Načítanie vstupu zo súboru
+Načítanie výstupu zo súboru
+
+Navyše:
+OOP
+List
+Konštruktor v štruktúre
+*/
