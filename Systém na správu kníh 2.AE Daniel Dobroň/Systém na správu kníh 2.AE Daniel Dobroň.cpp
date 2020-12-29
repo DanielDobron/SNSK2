@@ -111,6 +111,7 @@ void Uloz()
 
 void PridatKnihu(int kategoria, int zaner, string nazov, string popis)
 {
+    std::setlocale(LC_ALL, "");
     int id = zoznam.back().id + 1;
     zoznam.push_back(Kniha(id, kategoria, zaner, nazov, popis));
 }
@@ -186,6 +187,7 @@ void Knihy()
 
 void Sprava()
 {
+    system("cls");
     cout << "---------------------Systém na správu kníh-------------------" << endl;
     cout << "----------------------------Menu-----------------------------" << endl;
     cout << "Pre Deti (žáner) : Omaľovánky, Rozprávky " << endl;
