@@ -30,7 +30,7 @@ struct Kniha
 };
 
 string Kategorie[6] = { "Deti", "Študenti ", "Dospelí", "Pridať knihu", "Odstrániť knihu", "Uložiť knihy" };
-string Zanre[3][3] = { {"Omaľovánky", "Rozprávky"}, {"Romány", "Detektívky", "Cestopisy"}, {"Romány", "Novely", "Kuchárky"} };
+string Zanre[3][3] = { {"Omaľovánky", "Rozprávky"}, {"Romány", "Detektívky", "Cestopisy"}, {"Priručky", "Novely", "Kuchárky"} };
 
 list<Kniha> zoznam =
 {
@@ -231,7 +231,7 @@ void Sprava()
     cout << "Keď odoberieš knihu nezabudni uložiť program!" << endl;
     cout << "Pre Deti (žáner) : 1-Omaľovánky,2-Rozprávky " << endl;
     cout << "Pre Študentov (žáner) : 1-Romány, 2-Detektívky, 3-Cestopisy" << endl;
-    cout << "Pre Dospelých (žáner) : 1-Romány, 2-Novely, 3-Kuchárky" << endl;
+    cout << "Pre Dospelých (žáner) : 1-Príručky, 2-Novely, 3-Kuchárky" << endl;
     cout << "Vekové kategórie sú pod 1,2,3; Úprava pod 4,5; Uloženie pod 6." << endl;
     for (int i = 1; i <= sizeof(Kategorie) / sizeof(*Kategorie); ++i)
     {
