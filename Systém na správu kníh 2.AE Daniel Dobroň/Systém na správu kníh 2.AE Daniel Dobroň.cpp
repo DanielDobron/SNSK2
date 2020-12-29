@@ -291,7 +291,7 @@ switch
 pretypovanie
 Načítanie vstupu zo súboru
 Uloženie výstupu do súboru
-
+----------------------------
 Navyše:
 List
 Konštruktor v štruktúre
