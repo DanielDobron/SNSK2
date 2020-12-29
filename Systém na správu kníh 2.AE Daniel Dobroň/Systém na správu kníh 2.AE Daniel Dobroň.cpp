@@ -32,7 +32,6 @@ struct Kniha
 string Kategorie[6] = { "Deti", "Študenti ", "Dospelí", "Pridať knihu", "Odstrániť knihu", "Uložiť knihy" };
 string Zanre[3][3] = { {"Omaľovánky", "Rozprávky"}, {"Romány", "Detektívky", "Cestopisy"}, {"Romány", "Novely", "Kuchárky"} };
 
-
 list<Kniha> zoznam =
 {
     Kniha(0, -1, 0, "Nič", "Len tak na vyplnenie kvôli zistovaniu id z predošlého záznamu :)") //Nikde sa nezobrazuje
@@ -43,19 +42,28 @@ void Ciara()
     cout << "-------------------------------------------------------------" << endl;
 }
 
-int Vstup(string otazka)
+int Vstup(string otazka, int min = -1, int max = -1)
 {
-    int hodnota;
+    string hodnota;
+    int hodnotaInt;
     cout << otazka << " :" << endl;
     cin >> hodnota;
-    cout << endl << endl;
+    try
+    {
+        hodnotaInt = stoi(hodnota);
+    }
+    catch (exception& err)
+    {
+        cout << "Nesprávny vstup !" << endl;
+        return -2;
+    }
 
-    return hodnota;
+    if (((min == -1 && max == -1) || (min <= hodnotaInt && max >= hodnotaInt)) && max != 0) return hodnotaInt;
+    else return -1;
 }
 
 string VstupText(string otazka)
 {
-    
     string text;
     cout << otazka << " :" << endl;
     cin >> text;
@@ -76,7 +84,7 @@ int Zaner(int zaner)
 
     Ciara();
 
-    return Vstup("Vyber žáner");
+    return Vstup("Vyber žáner", 0, sizeof(Zanre[zaner - 1]) / sizeof(*Zanre[zaner - 1]));
 }
 
 void Uloz()
@@ -91,7 +99,7 @@ void Uloz()
         Kniha kniha = *it;
 
         if (kniha.kategoria < 0) continue;
-     
+
         string nazov = kniha.nazov;
         string popis = kniha.popis;
         replace(nazov.begin(), nazov.end(), ' ', '-');
@@ -110,24 +118,29 @@ void Uloz()
 
 void PridatKnihu(int kategoria, int zaner, string nazov, string popis)
 {
-    
     int id = zoznam.back().id + 1;
     zoznam.push_back(Kniha(id, kategoria, zaner, nazov, popis));
 }
 
-void NováKniha()
+bool Over(int vstup)
 {
+    return vstup >= 0;
+}
 
-    std::setlocale(LC_ALL, "");
-    int kategoria = Vstup("Veková Kategória") - 1;
+void NovaKniha()
+{
+    int kategoria = Vstup("Kategória") - 1;
     int zaner = Vstup("Žáner") - 1;
-    string nazov = VstupText("Názov Knihy (Medzeri píš pomocou -)");
-    string popis = VstupText("Popis knihy (Medzeri píš pomocou -)");
+    string nazov = VstupText("Názov Knihy (Medzery píš pomocou -)");
+    string popis = VstupText("Popis knihy (Medzery píš pomocou -)");
 
-    replace(nazov.begin(), nazov.end(), '-', ' ');
-    replace(popis.begin(), popis.end(), '-', ' ');
-
-    PridatKnihu(kategoria, zaner, nazov, popis);
+    if (Over(kategoria) && Over(zaner))
+    {
+        replace(nazov.begin(), nazov.end(), '-', ' ');
+        replace(popis.begin(), popis.end(), '-', ' ');
+        PridatKnihu(kategoria, zaner, nazov, popis);
+    }
+    else cout << "Nesprávna kategória alebo žáner" << endl;
 }
 
 void OdobratKnihu()
@@ -143,33 +156,57 @@ void OdobratKnihu()
         if (kniha.id == id)
         {
             zoznam.erase(it);
-            cout << "Kniha odstránená !";
+            cout << "Kniha odstránená !" << endl;
             naslo = true;
             break;
         }
         else continue;
     }
-    if (!naslo) cout << "Kniha neexistuje !";
+    if (!naslo) cout << "Kniha neexistuje !" << endl;
 }
 
 void Knihy()
 {
-    kat = Vstup("Vyber kategóriu");
+    int max = sizeof(Kategorie) / sizeof(*Kategorie);
+    kat = Vstup("Vyber vekovú kategóriu", 0, max);
     switch (kat)
     {
-    case 4:
-        NováKniha();
+    case -2:
         return;
-    case 5:
-        OdobratKnihu();
-        return;
-    case 6:
-        Uloz();
+    case -1:
+        cout << "Nesprávna kategória" << endl;
         return;
     default:
         break;
     }
+
+    if (kat == max)
+    {
+        Uloz();
+        return;
+    }
+    else if (kat == max - 1)
+    {
+        OdobratKnihu();
+        return;
+    }
+    else if (kat == max - 2)
+    {
+        NovaKniha();
+        return;
+    }
+
     zan = Zaner(kat);
+    switch (zan)
+    {
+    case -1:
+        cout << "Nesprávny žáner" << endl;
+        return;
+    case -2:
+        return;
+    default:
+        break;
+    }
 
     for (int i = 0; i < zoznam.size(); ++i)
     {
@@ -188,7 +225,6 @@ void Knihy()
 
 void Sprava()
 {
-    
     cout << "---------------------Systém na správu kníh-------------------" << endl;
     cout << "----------------------------Menu-----------------------------" << endl;
     cout << "Keď pridáš knihu nezabudni ju uložiť!" << endl;
@@ -197,20 +233,18 @@ void Sprava()
     cout << "Pre Študentov (žáner) : 1-Romány, 2-Detektívky, 3-Cestopisy" << endl;
     cout << "Pre Dospelých (žáner) : 1-Romány, 2-Novely, 3-Kuchárky" << endl;
     cout << "Vekové kategórie sú pod 1,2,3; Úprava pod 4,5; Uloženie pod 6." << endl;
-
     for (int i = 1; i <= sizeof(Kategorie) / sizeof(*Kategorie); ++i)
     {
         cout << i << " " << Kategorie[i - 1] << endl;
     }
     Ciara();
     Knihy();
-    if (Vstup("Chcete pokračovať ? (0-nie, 1-ano)")) Sprava();
+    if (Vstup("Chcete pokračovať ? (0-nie, 1-ano)", 0, 1) == 1) Sprava();
 }
 
 
 void NacitajKnihy()
 {
-    
     int i = 0;
     vector<string> zozn;
     string riadok;
@@ -244,23 +278,22 @@ int main()
 
     NacitajKnihy();
     Sprava();
-        
 }
 /*
 Použité zadané kritéria:
 Cyklus
 Štruktúra
 Práca s poľom
-Pointery
+Pointre
 Rekurzia
 Unárny operátor
 switch
 pretypovanie
 Načítanie vstupu zo súboru
-Načítanie výstupu zo súboru
+Uloženie výstupu do súboru
 
 Navyše:
-OOP
 List
 Konštruktor v štruktúre
+Try Catch
 */
