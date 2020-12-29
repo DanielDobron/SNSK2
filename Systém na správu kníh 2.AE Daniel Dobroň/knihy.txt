@@ -9,3 +9,7 @@
 1 0 Alibi Autor:-Sandra-Brown---Vydavatelstvo:-Remedium-2002---Cena:-12-90-eur---Pocet-stran:-336---Brozvana-vazba
 1 1 Vrazdy-v-Tatrach:-Smrt-horolezca Autor:-Daniel-J-Dancik---Vydavatelstvo:-Severin-Sincilery-2018---Cena:-6-90-eur---Pocet-stran:-156---E-kniha
 1 1 V-tieni Autor:-Dominik-Dan---Vydavatelstvo:-Slovart-2020---Cena:-38-02-eur---Pocet-stran:-304---Pevna-vazba
+1 1 Odkazy-z-minulosti Autor:-Daniel-J-Dancik---Vydavatelstvo:-Marenüip-PT-2017---Cena:-10-90-eur---Pocet-stran:-144---Pevna-vazba
+1 2 Zivot-v-dodavke Autor:-Forest-Trenz-a-Barbora-Masarikova---Vydavatelstvo:-Bizbooks-2020---Cena:-14-99-eur---Pocet-stran:-272---Pevna-vazba
+1 2 Lada-Svetom--Na-Ziguliku-cez-Himalaje Autor:-Marian-Grofcik---Vydavatelstvo:-Lada-svetom-o-z-2018---Cena:-12-00-eur---Pocet-stran:-336---Pevna-vazba
+1 2 Mongolsko-a-Sibir Autor:-Zuzana-a-Martin-Remisovci---Vydavatelstvo:-Ultimo-Press-2018---Cena:-17-99-eur---Pocet-stran:-256---Pevna-vazba
