@@ -42,7 +42,7 @@ void Ciara()
     cout << "-------------------------------------------------------------" << endl;
 }
 
-int Vstup(string otazka, int min = -1, int max = -1)
+int Vstup(string otazka, int min = -1, int max = -1) 
 {
     string hodnota;
     int hodnotaInt;
@@ -279,21 +279,3 @@ int main()
     NacitajKnihy();
     Sprava();
 }
-/*
-Použité zadané kritéria:
-Cyklus
-Štruktúra
-Práca s poľom
-Pointre
-Rekurzia
-Unárny operátor
-switch
-pretypovanie
-Načítanie vstupu zo súboru
-Uloženie výstupu do súboru
-----------------------------
-Navyše:
-List
-Konštruktor v štruktúre
-Try Catch
-*/
