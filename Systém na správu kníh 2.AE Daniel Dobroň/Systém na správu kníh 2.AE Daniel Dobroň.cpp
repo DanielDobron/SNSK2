@@ -168,7 +168,7 @@ void OdobratKnihu()
 void Knihy()
 {
     int max = sizeof(Kategorie) / sizeof(*Kategorie);
-    kat = Vstup("Vyber vekovú kategóriu", 0, max);
+    kat = Vstup("Vyber kategóriu", 0, max);
     switch (kat)
     {
     case -2:

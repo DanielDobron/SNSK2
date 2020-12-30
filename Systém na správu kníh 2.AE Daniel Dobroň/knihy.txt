@@ -22,3 +22,4 @@
 2 2 Kucharska-kniha-Terezie-Vansovej Autor:-Terezia-Vansova---Vydavatelstvo:-Nestor-2005---Cena:-21-50-eur---Pocet-stran:-528---Viazana-vazba
 2 2 Slovenska-kucharka Autor:-Kolektiv---Vydavatelstvo:-Topas-2010---Cena:-6-90-eur---Pocet-stran:-350---Viazana-vazba
 2 2 Torty-a-zakusky Autor:-Zdenka-a-Vladimir-Horecky---Vydavatelstvo:-Ikar-2017---Cena:-3-72-eur---Pocet-stran:-96---Brozovana-vazba
+2 2 ------------------------------------- -------------------------------------
