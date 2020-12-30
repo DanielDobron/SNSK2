@@ -18,5 +18,5 @@ Uloženie výstupu do súboru ✔
 Navyše: 
 List ✔ \
 Konštruktor v štruktúre ✔ \
-Try Catch ✔ \ 
+Try Catch ✔ \
 Vector ✔ 
