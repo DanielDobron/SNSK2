@@ -15,7 +15,7 @@ pretypovanie ✔ \
 Načítanie vstupu zo súboru ✔ \
 Uloženie výstupu do súboru ✔ 
 
-Navyše: 
+# Navyše: 
 List ✔ \
 Konštruktor v štruktúre ✔ \
 Try Catch ✔ \
