@@ -1,6 +1,6 @@
 # SNSK2:
 Systém na správu kníh 2.AE Daniel Dobroň \
-Vyprcoval Daniel Dobroň  ✔ \
+Vypracoval Daniel Dobroň \
 Program je funčný ✔  
 
 # Kritéria:
