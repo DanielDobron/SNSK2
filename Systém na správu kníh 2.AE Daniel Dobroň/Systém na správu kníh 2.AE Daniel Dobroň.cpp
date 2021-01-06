@@ -1,4 +1,4 @@
-﻿// Systém na správu kníh 2.AE Daniel Dobroň.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// Systém na správu kníh 2.AE Daniel Dobroň.cpp 
 //
 #include <iostream>
 #include <clocale>  
