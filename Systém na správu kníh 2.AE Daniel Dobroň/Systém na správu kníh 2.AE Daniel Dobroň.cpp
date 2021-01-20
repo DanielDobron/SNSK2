@@ -279,4 +279,4 @@ int main()
     NacitajKnihy();
     Sprava();
 }
-
+ // Konec
